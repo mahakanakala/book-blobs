@@ -76,7 +76,20 @@ text-align: center;
   font-size: 1.5em;
 
 }
+.cardbody {
+ border-bottom: 5px solid green;
+}
 
+.btn btn-primary  btn-lg {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 h5{
 font-size: 1.2em;
 }
@@ -91,6 +104,7 @@ h2 {
     padding: 0;
   }
 
+  
 
 }
 </style>
@@ -108,6 +122,22 @@ h2 {
 
   </p>
 </div>
+
+
+ <div class="card-body">
+        {% if new_comment %}
+        <div class="alert alert-success" role="alert">
+          HALLO
+        </div>
+        {% else %}
+        <h3>Leave a comment</h3>
+        <form method="post" style="margin-top: 1.3em;">
+          {{ comment_form.as_p }}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+        </form>
+        {% endif %}
+      </div>
 
 <div class="row">
   <div class="leftcolumn">
